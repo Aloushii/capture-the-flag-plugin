@@ -1,0 +1,4 @@
+name: CaptureTheFlag
+version: '${project.version}'
+main: com.aloushiz.ctf.CaptureTheFlag
+api-version: '1.15'
