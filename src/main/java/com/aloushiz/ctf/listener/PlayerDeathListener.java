@@ -10,9 +10,7 @@ public class PlayerDeathListener implements Listener {
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
         Bukkit.getScheduler().runTaskLater(CaptureTheFlag.getPlugin(),
-                () -> {
-                    event.getEntity().spigot().respawn();
-                },
+                () -> event.getEntity().spigot().respawn(),
                 4L);
     }
 }
