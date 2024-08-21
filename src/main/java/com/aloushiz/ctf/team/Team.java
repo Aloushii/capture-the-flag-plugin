@@ -5,15 +5,17 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Team {
 
-    private String name;
+    private final String name;
+    private final Location spawn;
+    private final List<UUID> playerList;
+    private final TeamColor teamColor;
+
     private int points;
-    private Location spawn;
-    private List<UUID> playerList;
-    private TeamColor teamColor;
 
     public Team(String name, Location spawn, TeamColor teamColor) {
         this.name = name;
@@ -38,15 +40,11 @@ public class Team {
     }
 
     public int size() {
-       return playerList.size();
+        return playerList.size();
     }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getPoints() {
@@ -61,15 +59,24 @@ public class Team {
         return spawn;
     }
 
-    public void setSpawn(Location spawn) {
-        this.spawn = spawn;
-    }
-
     public TeamColor getTeamColor() {
         return teamColor;
     }
 
-    public void setTeamColor(TeamColor teamColor) {
-        this.teamColor = teamColor;
+    public List<UUID> getPlayerList() {
+        return playerList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Team team = (Team) o;
+        return Objects.equals(name, team.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }

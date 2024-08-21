@@ -9,12 +9,8 @@ public class Game {
 
     private GameState gameState;
 
-    public Game(){
+    public Game() {
         this.gameState = GameState.WAITING;
-    }
-
-    public Game(GameState gameState){
-        this.gameState = gameState;
     }
 
     /**
@@ -22,16 +18,17 @@ public class Game {
      * it handles everything that needs to be done
      * in order to start the game.
      */
-    public void start(){
+    public void start() {
         gameState = GameState.IN_GAME;
         TeamManager.assignTeamToTeamlessPlayers();
+        TeamManager.teleportAllPlayersToTeamSpawn();
     }
 
-    public GameState getGameState(){
+    public GameState getGameState() {
         return gameState;
     }
 
-    public void setGameState(GameState gameState){
+    public void setGameState(GameState gameState) {
         this.gameState = gameState;
     }
 

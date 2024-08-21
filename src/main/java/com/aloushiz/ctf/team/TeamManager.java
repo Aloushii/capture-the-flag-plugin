@@ -5,9 +5,11 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 
 public class TeamManager {
-    private static List<Team> teamList = new ArrayList<>();
+    private static final List<Team> teamList = new ArrayList<>();
 
     public static void addTeam(Team team) {
         teamList.add(team);
@@ -27,7 +29,9 @@ public class TeamManager {
 
     public static void clearPlayerTeam(Player player) {
         for (Team team : teamList) {
-            team.removePlayer(player);
+            if (team.containsPlayer(player)) {
+                team.removePlayer(player);
+            }
         }
     }
 
@@ -57,7 +61,22 @@ public class TeamManager {
                             smalestTeam = team;
                         }
                     }
-                    smalestTeam.addPlayer(player);
+                    Objects.requireNonNull(smalestTeam).addPlayer(player);
                 });
+    }
+
+    public static void teleportAllPlayersToTeamSpawn() {
+        for (Team team : teamList) {
+            for (UUID playerUuid : team.getPlayerList()) {
+                Player player = Bukkit.getPlayer(playerUuid);
+                if (player != null) {
+                    player.teleport(team.getSpawn());
+                }
+            }
+        }
+    }
+
+    public static boolean playersInSameTeam(Player player1, Player player2) {
+        return Objects.equals(getTeamByPlayer(player1), getTeamByPlayer(player2));
     }
 }

@@ -19,7 +19,7 @@ public class PlayerJoinServerListener implements Listener {
         event.setJoinMessage("§7[CTF] " + ChatColor.LIGHT_PURPLE + player.getName()
                 + ChatColor.DARK_AQUA + " has joined Capture the Flag "
                 + ChatColor.LIGHT_PURPLE + "(" + CaptureTheFlag.getPlugin().getServer().getOnlinePlayers().size() + "/20)");
-        player.teleport(new Location(player.getWorld(), 42.5, 178.0, 463.5));
+        player.teleport(new Location(player.getWorld(), -1164.5, 92.5, 440.5));
         player.getInventory().clear();
         player.setFoodLevel(20);
         player.setMaxHealth(40);
@@ -30,7 +30,7 @@ public class PlayerJoinServerListener implements Listener {
         player.getInventory().addItem(redWool, blueWool);
 
         if (Bukkit.getOnlinePlayers().size() > 1 && CaptureTheFlag.getGame().getGameState() == GameState.WAITING) {
-            new StartGameTimerTask().runTaskTimerAsynchronously(CaptureTheFlag.getPlugin(), 0L, 20L);
+            new StartGameTimerTask().runTaskTimer(CaptureTheFlag.getPlugin(), 0L, 20L);
         }
 
     }
