@@ -51,6 +51,7 @@ public final class CaptureTheFlag extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerJoinTeamListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerHitListener(), this);
         getServer().getPluginManager().registerEvents(new FoodLevelChangeListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerRespawnListener(), this);
     }
 
     public static CaptureTheFlag getPlugin() {
