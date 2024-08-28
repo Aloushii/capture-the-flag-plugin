@@ -1,6 +1,7 @@
 package com.aloushiz.ctf.listener;
 
 import com.aloushiz.ctf.CaptureTheFlag;
+import com.aloushiz.ctf.game.Game;
 import com.aloushiz.ctf.game.GameState;
 import com.aloushiz.ctf.team.TeamManager;
 import org.bukkit.entity.Entity;
@@ -17,8 +18,9 @@ public class PlayerHitListener implements Listener {
         if (!(event.getEntity() instanceof Player)) {
             return;
         }
+        Game game = CaptureTheFlag.getGame();
 
-        if (CaptureTheFlag.getGame().getGameState() == GameState.WAITING) {
+        if (game.getGameState() == GameState.WAITING || game.getGameState() == GameState.TIMER) {
             event.setCancelled(true);
         }
 

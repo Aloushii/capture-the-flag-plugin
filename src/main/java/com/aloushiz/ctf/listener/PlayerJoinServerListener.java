@@ -15,7 +15,8 @@ public class PlayerJoinServerListener implements Listener {
     @EventHandler
     public void onPlayerJoinServer(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-
+        player.sendTitle("§e§lCapture The Flag", "§7The game will start shortly...",
+                5, 60,5);
         event.setJoinMessage("§7[CTF] " + ChatColor.LIGHT_PURPLE + player.getName()
                 + ChatColor.DARK_AQUA + " has joined Capture the Flag "
                 + ChatColor.LIGHT_PURPLE + "(" + CaptureTheFlag.getPlugin().getServer().getOnlinePlayers().size() + "/20)");
@@ -30,7 +31,8 @@ public class PlayerJoinServerListener implements Listener {
         player.getInventory().addItem(redWool, blueWool);
 
         if (Bukkit.getOnlinePlayers().size() > 1 && CaptureTheFlag.getGame().getGameState() == GameState.WAITING) {
-            new StartGameTimerTask().runTaskTimer(CaptureTheFlag.getPlugin(), 0L, 20L);
+            CaptureTheFlag.getGame().setGameState(GameState.TIMER);
+            new StartGameTimerTask().runTaskTimer(CaptureTheFlag.getPlugin(), 200L, 20L);
         }
 
     }
