@@ -1,5 +1,6 @@
 package com.aloushiz.ctf.team;
 
+import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -14,15 +15,17 @@ public class Team {
     private final Location spawn;
     private final List<UUID> playerList;
     private final TeamColor teamColor;
+    private final Color color;
 
     private int points;
 
-    public Team(String name, Location spawn, TeamColor teamColor) {
+    public Team(String name, Location spawn, TeamColor teamColor, Color color) {
         this.name = name;
         this.points = 0;
         this.spawn = spawn;
         this.playerList = new ArrayList<>();
         this.teamColor = teamColor;
+        this.color = color;
     }
 
     public void addPlayer(Player player) {
@@ -66,6 +69,14 @@ public class Team {
     public List<UUID> getPlayerList() {
         return playerList;
     }
+
+    public Color getColor() {
+        return color;
+    }
+
+    /*
+    public Inventory getTeamInventory(){}
+     */
 
     @Override
     public boolean equals(Object o) {

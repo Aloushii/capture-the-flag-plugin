@@ -6,6 +6,7 @@ import com.aloushiz.ctf.team.Team;
 import com.aloushiz.ctf.team.TeamColor;
 import com.aloushiz.ctf.team.TeamManager;
 import org.bukkit.Bukkit;
+import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -32,11 +33,12 @@ public final class CaptureTheFlag extends JavaPlugin {
         TeamManager.addTeam(new Team(
                 "RED",
                 new Location(Bukkit.getWorld("world"), -64.5, 118, 469.5, 180, 0),
-                TeamColor.RED));
+                TeamColor.RED, Color.RED));
         TeamManager.addTeam(new Team(
                 "BLUE",
                 new Location(Bukkit.getWorld("world"), 144.5, 118, 468.5, 180, 0),
-                TeamColor.BLUE));
+                TeamColor.BLUE, Color.BLUE));
+
     }
 
     private void loadListeners() {

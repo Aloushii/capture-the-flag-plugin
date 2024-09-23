@@ -22,6 +22,7 @@ public class Game {
         gameState = GameState.IN_GAME;
         TeamManager.assignTeamToTeamlessPlayers();
         TeamManager.teleportAllPlayersToTeamSpawn();
+        TeamManager.givePlayersBaseKits();
     }
 
     public GameState getGameState() {
