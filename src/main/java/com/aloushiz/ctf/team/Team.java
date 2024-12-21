@@ -3,7 +3,6 @@ package com.aloushiz.ctf.team;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -16,7 +15,6 @@ public class Team {
     private final List<UUID> playerList;
     private final TeamColor teamColor;
     private final Color color;
-
     private int points;
 
     public Team(String name, Location spawn, TeamColor teamColor, Color color) {

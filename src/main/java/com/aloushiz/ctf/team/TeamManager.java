@@ -1,6 +1,7 @@
 package com.aloushiz.ctf.team;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -89,41 +90,44 @@ public class TeamManager {
             for (UUID playerUuid : team.getPlayerList()) {
                 Player player = Bukkit.getPlayer(playerUuid);
                 player.getInventory().clear();
-
-                ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
-                LeatherArmorMeta metaBoots = (LeatherArmorMeta) boots.getItemMeta();
-                metaBoots.setColor(team.getColor());
-                metaBoots.setUnbreakable(true);
-                boots.setItemMeta(metaBoots);
-
-                ItemStack chest = new ItemStack(Material.LEATHER_CHESTPLATE);
-                LeatherArmorMeta metaChest = (LeatherArmorMeta) chest.getItemMeta();
-                metaChest.setColor(team.getColor());
-                metaChest.setUnbreakable(true);
-                chest.setItemMeta(metaBoots);
-
-                ItemStack helmet = new ItemStack(Material.LEATHER_HELMET);
-                LeatherArmorMeta metaHelmet = (LeatherArmorMeta) helmet.getItemMeta();
-                metaHelmet.setColor(team.getColor());
-                metaHelmet.setUnbreakable(true);
-                helmet.setItemMeta(metaHelmet);
-
-                ItemStack legs = new ItemStack(Material.LEATHER_LEGGINGS);
-                LeatherArmorMeta metaLegs = (LeatherArmorMeta) legs.getItemMeta();
-                metaLegs.setColor(team.getColor());
-                metaLegs.setUnbreakable(true);
-                legs.setItemMeta(metaLegs);
-
-                ItemStack woodenSword = new ItemStack(Material.WOODEN_SWORD);
-                ItemMeta metaWoodenSword = woodenSword.getItemMeta();
-                metaWoodenSword.setUnbreakable(true);
-                woodenSword.setItemMeta(metaWoodenSword);
-                ItemStack[] weapons = new ItemStack[] {woodenSword};
-
-                ItemStack[] baseArmorSet = new ItemStack[] {boots, legs, chest, helmet};
-                player.getInventory().setContents(weapons);
-                player.getInventory().setArmorContents(baseArmorSet);
+                givePlayerBaseKit(player, team.getColor());
             }
         }
+    }
+
+    public static void givePlayerBaseKit(Player player, Color teamColor) {
+        ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
+        LeatherArmorMeta metaBoots = (LeatherArmorMeta) boots.getItemMeta();
+        metaBoots.setColor(teamColor);
+        metaBoots.setUnbreakable(true);
+        boots.setItemMeta(metaBoots);
+
+        ItemStack chest = new ItemStack(Material.LEATHER_CHESTPLATE);
+        LeatherArmorMeta metaChest = (LeatherArmorMeta) chest.getItemMeta();
+        metaChest.setColor(teamColor);
+        metaChest.setUnbreakable(true);
+        chest.setItemMeta(metaBoots);
+
+        ItemStack helmet = new ItemStack(Material.LEATHER_HELMET);
+        LeatherArmorMeta metaHelmet = (LeatherArmorMeta) helmet.getItemMeta();
+        metaHelmet.setColor(teamColor);
+        metaHelmet.setUnbreakable(true);
+        helmet.setItemMeta(metaHelmet);
+
+        ItemStack legs = new ItemStack(Material.LEATHER_LEGGINGS);
+        LeatherArmorMeta metaLegs = (LeatherArmorMeta) legs.getItemMeta();
+        metaLegs.setColor(teamColor);
+        metaLegs.setUnbreakable(true);
+        legs.setItemMeta(metaLegs);
+
+        ItemStack woodenSword = new ItemStack(Material.WOODEN_SWORD);
+        ItemMeta metaWoodenSword = woodenSword.getItemMeta();
+        metaWoodenSword.setUnbreakable(true);
+        woodenSword.setItemMeta(metaWoodenSword);
+        ItemStack[] weapons = new ItemStack[] {woodenSword};
+
+        ItemStack[] baseArmorSet = new ItemStack[] {boots, legs, chest, helmet};
+        player.getInventory().setContents(weapons);
+        player.getInventory().setArmorContents(baseArmorSet);
     }
 }

@@ -12,5 +12,6 @@ public class PlayerDeathListener implements Listener {
         Bukkit.getScheduler().runTaskLater(CaptureTheFlag.getPlugin(),
                 () -> event.getEntity().spigot().respawn(),
                 4L);
+        event.getDrops().clear();
     }
 }
