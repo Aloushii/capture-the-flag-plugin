@@ -1,4 +1,4 @@
-package com.aloushiz.ctf.listener;
+package com.aloushiz.ctf.listener.player;
 
 import com.aloushiz.ctf.CaptureTheFlag;
 import com.aloushiz.ctf.game.Game;

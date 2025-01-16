@@ -1,4 +1,4 @@
-package com.aloushiz.ctf.listener;
+package com.aloushiz.ctf.listener.player;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

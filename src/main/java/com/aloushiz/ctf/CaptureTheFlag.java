@@ -1,7 +1,11 @@
 package com.aloushiz.ctf;
 
 import com.aloushiz.ctf.game.Game;
-import com.aloushiz.ctf.listener.*;
+import com.aloushiz.ctf.listener.block.BlockBreakEventListener;
+import com.aloushiz.ctf.listener.block.BlockPlaceEventListener;
+import com.aloushiz.ctf.listener.block.BucketEmptyListener;
+import com.aloushiz.ctf.listener.block.SpawnEggListener;
+import com.aloushiz.ctf.listener.player.*;
 import com.aloushiz.ctf.team.Team;
 import com.aloushiz.ctf.team.TeamColor;
 import com.aloushiz.ctf.team.TeamManager;

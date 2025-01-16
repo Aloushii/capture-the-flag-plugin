@@ -1,4 +1,4 @@
-package com.aloushiz.ctf.listener;
+package com.aloushiz.ctf.listener.block;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

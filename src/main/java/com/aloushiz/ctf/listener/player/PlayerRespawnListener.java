@@ -1,4 +1,4 @@
-package com.aloushiz.ctf.listener;
+package com.aloushiz.ctf.listener.player;
 
 import com.aloushiz.ctf.team.Team;
 import com.aloushiz.ctf.team.TeamManager;

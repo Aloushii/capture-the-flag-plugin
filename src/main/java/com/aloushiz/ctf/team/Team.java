@@ -1,8 +1,11 @@
 package com.aloushiz.ctf.team;
 
+import com.aloushiz.ctf.items.Flag;
+import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -15,9 +18,11 @@ public class Team {
     private final List<UUID> playerList;
     private final TeamColor teamColor;
     private final Color color;
+    private final Flag flag;
     private int points;
 
     public Team(String name, Location spawn, TeamColor teamColor, Color color) {
+        this.flag = new Flag(this,spawn);
         this.name = name;
         this.points = 0;
         this.spawn = spawn;
@@ -72,9 +77,10 @@ public class Team {
         return color;
     }
 
-    /*
-    public Inventory getTeamInventory(){}
-     */
+    public Inventory getTeamInventory() {
+        Inventory inventory = Bukkit.createInventory(null, size(), name);
+        return inventory;
+    }
 
     @Override
     public boolean equals(Object o) {
